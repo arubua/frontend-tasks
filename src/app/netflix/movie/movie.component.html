@@ -1,0 +1,21 @@
+<div class="container-fluid" routerLink = '/task1'>
+  <nav>
+    <mat-icon (click)="goBack();" aria-hidden="false" aria-label="navigate back icon">arrow_back</mat-icon>
+    <button mat-raised-button color="accent">Go to Task 2</button>
+  </nav>
+
+  <div class="category">
+    <h2>Now Playing Movies</h2>
+    <mat-card class="md-elevation-z20"  *ngFor="let playingMovie of playingMovies">
+      <img mat-card-image src="https://image.tmdb.org/t/p/w500{{playingMovie?.poster_path}}" sizes="50%">
+        <mat-card-title>{{playingMovie?.title|ellipsis:50}}</mat-card-title>
+        <mat-card-subtitle>{{playingMovie.release_date|date: longDate}}</mat-card-subtitle>
+        <mat-card-content>{{playingMovie?.overview|ellipsis:175}}</mat-card-content>
+        <mat-divider [inset]="true"></mat-divider>
+        <mat-card-footer><a>Read More</a></mat-card-footer>
+    </mat-card>
+  </div>
+
+  <div class="clearfix"></div>
+  <footer>This application uses TMDB API but is not certified or approved by them.</footer>
+</div>
